@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
 const exphbs = require('express-handlebars')
-
+// Inicia o servidor 
+const PORT = process.env.PORT || 8080;
 //Conexão combanco de dados
 const connection = require('./mysqlFile')
 const db = require('mysql').createPool(connection)
@@ -101,6 +102,6 @@ app.post('/promos', (req, res) => {
   }
 })
 
-app.listen(3000, () => {
-  console.log("Backend executando...")
+app.listen(PORT, () => {
+  console.log(`App escutando na porta ${PORT}`)
 })
